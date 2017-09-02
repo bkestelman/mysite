@@ -1,0 +1,62 @@
+.main {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	flex-direction: column;
+}
+
+.welcome {
+}
+
+.choices {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	height: 125px;
+}
+
+.choice {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.ring {
+	border: 3px solid gray;
+	border-radius: 100%;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: width .5s, height .5s;
+}
+
+.main .icon {
+	font-size: 50px;
+	color: gray;
+	transition: font-size .5s;
+}
+
+.main .ring:hover {
+	width: 120px;
+	height: 120px;
+}
+
+.main .ring:hover .icon {
+	font-size: 60px;
+}
+
+.flex-spacer {
+	transition: flex-grow .5s;
+}
+
+.grow-spacer {
+	flex-grow: 1;
+}
+
+footer {
+	bottom: 0;
+}
