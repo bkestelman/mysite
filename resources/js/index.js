@@ -7,33 +7,58 @@ $(document).ready(function() {
 var firstMove = true;
 
 function moveOverButtons(e) {
-	$("#contact-form").hide();
 	if(firstMove) {
 		firstMove = false;
 		$(".spacer").addClass("grow");
 		changeContent(e);
 		$(".welcome").slideUp(function() {
-			$(".content").fadeToggle(function() {
-				if($(e).attr("id") === "contact") {
-					console.log("Equal");
-					$("#contact-form").fadeToggle();
-				}
-			});
+			firstShow(e);
+			$(".main").addClass("main-rejustify");
 		});
 	}
 	else {
-		$(".content").fadeToggle(function() {
+		console.log("fading out all content");
+		$(".content").fadeOut();
+		$(".content").promise().done(function() {
 			changeContent(e)
+			nextShow(e);
 		});
-		$(".content").fadeToggle(function() {
-			if($(e).attr("id") === "contact") {
-				console.log("Equal");
-				$("#contact-form").fadeToggle();
-			}
-		});
-
 	}
 	$(".ring").hide().show(0);
+}
+
+function firstShow(e) {
+	$("body").removeClass("no-overflow");
+	$(".base-content").fadeIn(function() {
+	});
+
+	switch($(e).attr("id")) {
+		case "contact":
+			$("#contact-form").fadeIn();
+			$("body").addClass("no-overflow");
+			break;
+		case "who":
+			$(".pic-container").fadeIn();
+		default:
+			break;
+	}
+}
+
+function nextShow(e) {
+	$("body").removeClass("no-overflow");
+	$(".base-content").fadeIn(function() {
+	});
+
+	switch($(e).attr("id")) {
+		case "contact":
+			$("#contact-form").fadeIn();
+			$("body").addClass("no-overflow");
+			break;
+		case "who":
+			$(".pic-container").fadeIn();
+		default:
+			break;
+	}
 }
 
 function changeContent(e) {
@@ -51,7 +76,7 @@ function changeContent(e) {
 			$("#main-content").html(resumeContent);
 			break;
 		case "contact":
-			$("#content-header").text("Contact");
+			$("#content-header").text("");
 			$("#main-content").html("");
 			break;
 		default:
@@ -74,15 +99,10 @@ var whoContent = "<br>" +
 
 var projectsContent = "<br>" +
 "Project: Democracy <br><br>" + 
-"Android app where people vote on and ask political questions.<br><br>";
+"Android app where people vote on and ask political questions.<br><br>" + 
+"That's my main project right now! Other projects I have on hold include wrapper libraries for Android development, stock data collection and predictions, and playing around with neural nets.<br><br>" + 
+"<a href=\"https://github.com/bkestelman\" target=\"_blank\"><img src=\"resources/img/github-logo.jpg\"></a>";
 
 var resumeContent = "<br>" + 
 "My Resum\u00e9 (coming soon...)";
-
-var contactContent = {
-	src: "https://docs.google.com/forms/d/e/1FAIpQLSd5nshKIuo1JhK9wmddf8BU6nnVcJ4Q90fq3WjMn2yL5cqVpA/viewform?embedded=true",
-	frameborder: "0",
-	marginheight: "0",
-	marginwidth: "0"
-};
 
