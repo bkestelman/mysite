@@ -1,8 +1,10 @@
 .main {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	height: 100%;
 	flex-direction: column;
+	border: 4px solid blue;
 }
 
 .welcome {
@@ -13,7 +15,11 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: row;
-	height: 125px;
+	height: 150px;
+}
+
+.lineup {
+	flex-direction: column;
 }
 
 .choice {
@@ -49,14 +55,32 @@
 	font-size: 60px;
 }
 
-.flex-spacer {
+.no-hover: {
+	background: blue;
+	width: 100px;
+	height: 100px;
+}
+
+.content {
+	display: none;
+	text-align: center;
+}
+
+.spacer {
 	transition: flex-grow .5s;
 }
 
-.grow-spacer {
+.grow {
 	flex-grow: 1;
+}
+
+#contact-form {
+	display: none;
+	flex-grow: 1;
+	width: 100%;
 }
 
 footer {
 	bottom: 0;
 }
+
